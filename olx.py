@@ -50,16 +50,16 @@ def get_page_data(html):
         write_csv(title)
 
 def main():   # формируем список ссылок на страницы выдачи
-    url = "https://www.olx.ua/zhivotnye/sobaki/krivoyrog/"
-    base_url = "https://www.olx.ua/zhivotnye/sobaki/krivoyrog/"
-    query_part = "q- /"
+    url = "https://www.olx.ua/hobbi-otdyh-i-sport/sport-otdyh/krivoyrog/"
+    base_url = "https://www.olx.ua/hobbi-otdyh-i-sport/sport-otdyh/krivoyrog/"
+    query_part = "q-ролики/"
     page_part = "?page="
 
     total_pages = get_total_pages(get_html(url))
     # print(total_pages)
 
     for i in range(2,total_pages):
-        url_gen = base_url + page_part + str(i) # + query_part
+        url_gen = base_url + query_part + page_part + str(i)  # + query_part
         print(url_gen)
         html = get_html(url_gen)
         get_page_data(html)
